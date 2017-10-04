@@ -12,30 +12,21 @@ public class CashRegister implements ICashRegister {
 		basket.getListItem().forEach(item -> {
 			recipt.addItem(item);
 			recipt.addToTaxes(calulatePriceTaxes(item, Boolean.FALSE));
-			recipt.addToTotal(calulatePriceTaxes(item, Boolean.TRUE));
+			double priceWithTaxes = calulatePriceTaxes(item, Boolean.TRUE);
+			recipt.addToTotal(priceWithTaxes);
+			item.setPrice(priceWithTaxes);
 		});
 		return recipt;
 	}
 
-	private static double calulatePriceTaxes(Item item, boolean total) {
+	private double calulatePriceTaxes(Item item, boolean total) {
 		double price = item.getPrice();
 		if (total) {
-			price += item.getPrice() * item.getItemType().getSalesTax();
+			price = Calculator.getPriceItemeWithTaxes(item);
 		} else {
-			price = item.getPrice() * item.getItemType().getSalesTax();
+			price = Calculator.roundNearBound(Calculator.getTaxesItem(item), 2);
 		}
-		return arrotonda(price, 2);
+		return price;
 	}
-
-	public static double arrotonda(double numero, int nCifreDecimali) {
-		return Math.round(numero * Math.pow(10, nCifreDecimali)) / Math.pow(10, nCifreDecimali);
-	}
-
-	// public static void main(String[] args) {
-	// Item item = new Item();
-	// item.setPrice(10.97222222D);
-	// item.setItemType(ItemType.OTHER);
-	// calulatePriceTaxes(item);
-	// }
 
 }

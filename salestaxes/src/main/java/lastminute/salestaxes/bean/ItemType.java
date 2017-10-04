@@ -16,16 +16,26 @@ public enum ItemType {
 		return nameType;
 	}
 
-	public void setNameType(String nameType) {
-		this.nameType = nameType;
-	}
-
 	public double getSalesTax() {
 		return salesTax;
 	}
 
-	public void setSalesTax(double salesTax) {
-		this.salesTax = salesTax;
+	public static double getSalesTaxFromName(String name) {
+		for (ItemType itemType : ItemType.values()) {
+			if (itemType.getNameType().equals(name)) {
+				return itemType.getSalesTax();
+			}
+		}
+		return ItemType.OTHER.getSalesTax();
+	}
+
+	public static ItemType getEnumFromName(String name) {
+		for (ItemType itemType : ItemType.values()) {
+			if (itemType.getNameType().equals(name)) {
+				return itemType;
+			}
+		}
+		return ItemType.OTHER;
 	}
 
 }

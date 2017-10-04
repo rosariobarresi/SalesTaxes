@@ -6,7 +6,7 @@ public class Item {
 	private ItemType itemType;
 	private int quantity;
 	private double price;
-	private boolean imported;
+	private Import imported = Import.NOT_IMPORT;
 
 	public String getName() {
 		return name;
@@ -40,11 +40,11 @@ public class Item {
 		return itemType;
 	}
 
-	public void setImported(boolean imported) {
+	public void setImported(Import imported) {
 		this.imported = imported;
 	}
 
-	public boolean getImported() {
+	public Import getImported() {
 		return imported;
 	}
 

@@ -1,6 +1,7 @@
 package lastminute.salestaxes.bean;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 public class ItemTest {

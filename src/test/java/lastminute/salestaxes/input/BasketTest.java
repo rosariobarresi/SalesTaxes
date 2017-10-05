@@ -1,12 +1,13 @@
 package lastminute.salestaxes.input;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.ArrayList;
 
 import org.junit.Test;
 
 import lastminute.salestaxes.bean.Item;
-
-import static org.junit.Assert.*;
 
 public class BasketTest {
 

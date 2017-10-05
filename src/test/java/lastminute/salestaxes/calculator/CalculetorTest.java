@@ -1,12 +1,12 @@
 package lastminute.salestaxes.calculator;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import lastminute.salestaxes.bean.Import;
 import lastminute.salestaxes.bean.Item;
 import lastminute.salestaxes.bean.ItemType;
-
-import static org.junit.Assert.*;
 
 public class CalculetorTest {
 

@@ -1,5 +1,7 @@
 package lastminute.salestaxes.bean;
 
+import lastminute.salestaxes.calculator.Calculator;
+
 public class Item {
 
 	private String name;
@@ -25,7 +27,7 @@ public class Item {
 	}
 
 	public double getPrice() {
-		return price;
+		return  Calculator.round(price, 2);
 	}
 
 	public void setPrice(double price) {

@@ -11,14 +11,13 @@ public class Calculator {
 			return d;
 		}
 		char lastNumber = number.charAt(number.length() - 1);
-		if (lastNumber == '0' || lastNumber == '1' || lastNumber == '2') {
-			number = number.substring(0, number.length() - 1) + '0';
-		} else if (lastNumber == '3' || lastNumber == '4' || lastNumber == '5' || lastNumber == '6'
-				|| lastNumber == '7') {
-			number = number.substring(0, number.length() - 1) + '5';
-		} else if (lastNumber == '8') {
+		if (lastNumber == '1' || lastNumber == '6') {
+			return d - 0.01D;
+		} else if (lastNumber == '2' || lastNumber == '7') {
+			return d - 0.02D;
+		} else if (lastNumber == '3' || lastNumber == '8') {
 			return d + 0.02D;
-		} else if (lastNumber == '9') {
+		} else if (lastNumber == '4' || lastNumber == '9') {
 			return d + 0.01D;
 		}
 		return Double.parseDouble(number);
@@ -28,11 +27,7 @@ public class Calculator {
 		return Math.round(numero * Math.pow(10, nCifreDecimali)) / Math.pow(10, nCifreDecimali);
 	}
 
-	public static double getPriceItemeWithTaxes(Item item) {
-		double price = item.getPrice();
-		double taxes = roundNearBound(getTaxesItem(item), 2);
-		return round(price + taxes, 2);
-	}
+	
 
 	public static double getTaxesItem(Item item) {
 		return item.getPrice() * (item.getItemType().getSalesTax() + item.getImported().getSalesTax());

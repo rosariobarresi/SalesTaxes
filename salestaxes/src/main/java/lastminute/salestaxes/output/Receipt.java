@@ -17,7 +17,7 @@ public class Receipt {
 	}
 
 	public void addItem(Item item) {
-		if (listItem == null) {
+		if (listItem == null) { 
 			listItem = new ArrayList<Item>();
 		}
 		listItem.add(item);
